@@ -17,6 +17,7 @@ This repository provides code and configurations to replicate the pretraining, f
 ```bash
 conda create -n agfn python=3.8.20
 conda activate agfn
+cd agfn
 pip install -r requirements_dev.txt
 pip install -e .
 ```
