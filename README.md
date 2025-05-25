@@ -5,7 +5,10 @@
 ## 📄 Paper Reference
 
 **Title**: *Pretraining Generative Flow Networks with Inexpensive Rewards for Molecular Graph Generation*
+
 **Authors**: Mohit Pandey, Gopeshh Subbaraj, Artem Cherkasov, Martin Ester, Emmanuel Bengio
+
+
 **arXiv**: [arXiv:2503.06337](https://arxiv.org/abs/2503.06337)
 
 This repository provides code and configurations to replicate the pretraining, fine-tuning, and case-studies (denovo molecule design & lead optimization) experiments reported in our paper, including support for both standard Trajectory Balance and Relative Trajectory Balance (RTB).
@@ -90,9 +93,7 @@ The following fields of finetune.yml should be sufficient to recreate the experi
 
 •	**saved_model_path**: Path to pretrained AGFN prior
 
-
 🔜 Support for custom tasks is coming soon!
-
 
 ### 🖥️ Multi-GPU Usage
 
