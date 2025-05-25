@@ -17,7 +17,7 @@ This repository provides code and configurations to replicate the pretraining, f
 ```bash
 conda create -n agfn python=3.8.20
 conda activate agfn
-cd AGFN
+cd agfn
 pip install -r requirements_dev.txt
 pip install -e .
 ```
@@ -93,7 +93,9 @@ The following fields of finetune.yml should be sufficient to recreate the experi
 
 •	**saved_model_path**: Path to pretrained AGFN prior
 
+
 🔜 Support for custom tasks is coming soon!
+
 
 ### 🖥️ Multi-GPU Usage
 
@@ -131,7 +133,7 @@ python ./src/agfn/sampling.py [finetuned_model_path] [n_samples] --bs [batch_siz
 
 ### 1. De Novo Design of Target-Specific Binders with Molecular Docking
 
-This pipeline enables the generation of de novo molecules for a target protein, with molecular docking evaluation using **QuickVina2** as rewards.
+This pipeline enables the generation of de novo molecules for a target protein, with molecular docking evaluation using **QuickVina2** as rewards. For the installation of QuickVina2, follow instructions [here](https://github.com/DeltaGroupNJUPT/Vina-GPU-2.1)
 
 ### 🔧 Configuration
 
