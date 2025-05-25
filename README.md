@@ -1,13 +1,12 @@
 # Atomic GFlowNets- Pretraining & Finetuning atom based GFlowNets with Inexpensive Rewards for Molecule Optimization
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)[![Paper](https://img.shields.io/badge/arXiv-2401.12345-b31b1b.svg)](https://arxiv.org/abs/2401.12345)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)[![Paper](https://img.shields.io/badge/arXiv-2503.06337-b31b1b.svg)](https://arxiv.org/abs/2503.06337)
 
 ## 📄 Paper Reference
 
 **Title**: *Pretraining Generative Flow Networks with Inexpensive Rewards for Molecular Graph Generation*
 
 **Authors**: Mohit Pandey, Gopeshh Subbaraj, Artem Cherkasov, Martin Ester, Emmanuel Bengio
-
 
 **arXiv**: [arXiv:2503.06337](https://arxiv.org/abs/2503.06337)
 
