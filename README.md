@@ -53,25 +53,46 @@ Place the downloaded checkpoint file at ./saved_models/pretrained/[pretrained_mo
 
 Similar to the pretraining setup, the tunable hyperparameters for finetuning are placed in:
 `./src/config/finetune.yml`
+
 The following fields of finetune.yml should be sufficient to recreate the experiments reported in our paper:
+
 •	type: 'finetuning' / 'rtb' for vanilla finetuning with Trajectory Balance or Relative Trajectory Balance (RTB)
+
 •	objective: property_constrained_optimization / property_targeting / property_optimization (We expect most users to be interested in property_constrained_optimization. See the Experiments section of our paper for more details.)
+
 •	**subtype**: preserved / DRA (Dynamic Range Adjustment)
+
 •	**task**: currently supports the following tasks out of the box:
+
 ◦	`Caco2`
+
 ◦	`LD50`
+
 ◦	`Lipophilicity`
+
 ◦	`Solubility`
+
 ◦	`BindingRate`
+
 ◦	`MicroClearance`
+
 ◦	`HepatocyteClearance`
+
 •	**task_possible_range**: Refer to Table 8 and 9 in the appendix of our paper.
+
 •	**pref_dir**: Preference direction; Refer to Table 9 in the appendix.
+
 •	**task_model_path**: Path to the Maplight model for the task (e.g. ./saved_models/task_models/modelname.pt)
+
 •	**offline_data**: True / False; whether to finetune with hybrid offline + online data or purely online
+
 •	**offline_df_path**: Path to offline data used when offline_data == True; refer to files in ./data/task_files/ for formatting
+
 •	**saved_model_path**: Path to pretrained AGFN prior
+
+
 🔜 Support for custom tasks is coming soon!
+
 
 ### 🖥️ Multi-GPU Usage
 
@@ -98,11 +119,13 @@ python ./src/agfn/sampling.py [finetuned_model_path] [n_samples] --bs [batch_siz
 •	finetuned_model_path: Path to your trained .pt model file.
 •	n_samples: Total number of SMILES to sample.
 •	--bs: (Optional) Batch size used during sampling. Default is 32.
+
 ### 📁 Output:
 
 •	Sampled SMILES will be saved to: ./data/gfn_samples/smiles_checkpoints/
 •	If n_samples > 1000, intermediate checkpoints (10%, 20%, ..., 90%) will be saved incrementally.
 •	The final SMILES list (100%) is always saved as smiles_final.pkl.
+
 ## 🔬 Applications
 
 ### 1. De Novo Design of Target-Specific Binders with Molecular Docking
@@ -140,6 +163,7 @@ Other hyperparameters can be left at their default values or customized based on
 ```bash
 python ./src/apps/docking/denovo/denovo_driver.py ./src/config/denovo.yml
 ````
+
 > ⚠️ **Note**:
 > This setup is optimized for a **2-GPU** configuration.
 > For **single-GPU** setups, if you encounter docking-related CUDA errors, consider **reducing** the `training_batch_size` in `denovo.yml`.
@@ -161,5 +185,7 @@ If you use this codebase or find it helpful in your research, please cite our pa
       url={https://arxiv.org/abs/2503.06337}, 
 }
 ```
-📬 Contact
+
+## 📬 Contact
+
 For questions or issues, please open an issue in the GitHub repository or contact the authors listed in the paper.
