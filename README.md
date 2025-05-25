@@ -93,9 +93,7 @@ The following fields of finetune.yml should be sufficient to recreate the experi
 
 •	**saved_model_path**: Path to pretrained AGFN prior
 
-
 🔜 Support for custom tasks is coming soon!
-
 
 ### 🖥️ Multi-GPU Usage
 
@@ -120,13 +118,17 @@ python ./src/agfn/sampling.py [finetuned_model_path] [n_samples] --bs [batch_siz
 ### 🔧 Arguments:
 
 •	finetuned_model_path: Path to your trained .pt model file.
+
 •	n_samples: Total number of SMILES to sample.
+
 •	--bs: (Optional) Batch size used during sampling. Default is 32.
 
 ### 📁 Output:
 
 •	Sampled SMILES will be saved to: ./data/gfn_samples/smiles_checkpoints/
+
 •	If n_samples > 1000, intermediate checkpoints (10%, 20%, ..., 90%) will be saved incrementally.
+
 •	The final SMILES list (100%) is always saved as smiles_final.pkl.
 
 ## 🔬 Applications
