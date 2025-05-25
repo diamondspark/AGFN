@@ -1,0 +1,57 @@
+log_dir: "./AGFN_logs/debug_run"
+num_iter: 500000000000
+# expt: "Hybrid_En"
+atoms: ["Br", "C", "Cl", "F", "I", "N", "O", "S"]
+seed_scaffold: null
+offline_data_file: "250k_rndm_zinc_drugs_clean_3.csv"
+preprocess_offln_data: true
+load_saved_model: false
+model_load_path: "/mnt/ps/home/CORP/mohit.pandey/gfn_pretrain_test_env/code/GFNPt_logs/debug_run/lemon-breeze-151/model_state_lemon-breeze-151_8000.pt"
+bootstrap_own_reward: false
+random_seed: 1428570
+beta: 64
+OOB_percent: 0.1
+zinc_rad_scale: null
+clip_grad: false
+gfn_batch_shuffle: false
+reward_aggergation: "mul"
+atomenv_dictionary: "./data/atomenv_counts_ZINC_radius2_763K.pkl"
+sampling_batch_size: 256
+training_batch_size: 32
+learning_rate: 1.0e-4
+global_batch_size: 64
+mix_ratio: 0.5
+data_root: "./data/"
+num_workers: 2
+gfn_lambda: 1
+MLE_coeff: 20
+gfn_loss_coeff: 0.04
+num_emb: 128
+num_layers: 15
+num_mlp_layers: 10
+num_heads: 4
+i2h_width: 1
+tb_epsilon: null
+tb_do_subtb: false
+illegal_action_logreward: -512
+weight_decay: 1.0e-8
+num_data_loader_workers: 8
+momentum: 0.9
+adam_eps: 1.0e-8
+lr_decay: 20000
+Z_lr_decay: 20000
+clip_grad_type: "norm"
+clip_grad_param: 10
+random_action_prob: 0.001
+random_stop_prob: 0.001
+sampling_tau: 0.0
+num_back_steps_max: 25
+max_traj_len: 40
+max_nodes: 45
+max_edges: 50
+# offline_ratio: 0.0
+tb_p_b_is_parameterized: true
+# scaffold_ratio: 0.5
+num_thermometer_dim: 16
+sample_temp: 1
+checkpoint_every: 1000

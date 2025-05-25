@@ -1,0 +1,108 @@
+finetuning:
+  type: 'rtb'
+  wandb_project_name: "GFN_Finetune"
+  # seed_smiles: 'CC1(C)CC(=O)C2=C(C1)Nc1[nH]c(=O)[nH]c(=O)c1[C@H]2c1ccc(-c2cc(Cl)ccc2Cl)o1' #'O=C(Nc1ccc(Cl)nc1)c1cncc(OCc2ccn[nH]2)n1'
+  # seed_scaffold: null #"CNc1nc(OCc2cncn2C)cnc1C(N)=O"
+  task: 'QedxSaxDock' 
+  task_possible_range: [-20,0] 
+  target_name: "5ht1b" #"braf" #"fa7" #"parp1" # "jak2" #
+  vina_path: "/groups/cherkasvgrp/Vina-GPU-2.1/QuickVina2-GPU-2.1/QuickVina2-GPU-2-1" #"path/to/QuickVina2-GPU-2.1/" # E.g. "/groups/mygroup/Vina-GPU-2.1/QuickVina2-GPU-2.1/QuickVina2-GPU-2-1"
+  gfn_samples_path: "./data/gfn_samples"
+  saved_model_path: "./saved_models/pretrained/decent-butterfly-1_110000.pt"
+  target_grid:
+    fa7:
+      receptor: "./data/docking/fa7.pdbqt"
+      center_x: 10.131
+      center_y: 41.879
+      center_z: 32.097
+      size_x: 20.673
+      size_y: 20.198
+      size_z: 21.362
+    parp1:
+      receptor: "./data/docking/parp1.pdbqt"
+      center_x: 26.413
+      center_y: 11.282
+      center_z: 27.238
+      size_x: 18.521
+      size_y: 17.479
+      size_z: 19.995
+    5ht1b:
+      receptor: "./data/docking/5ht1b.pdbqt"
+      center_x: -26.602
+      center_y: 5.277
+      center_z: 17.898
+      size_x: 22.5
+      size_y: 22.5
+      size_z: 22.5
+    jak2:
+      receptor: "./data/docking/jak2.pdbqt"
+      center_x: 114.758
+      center_y: 65.496
+      center_z: 11.345
+      size_x: 19.033
+      size_y: 17.929
+      size_z: 20.283
+    braf:
+      receptor: "./data/docking/braf.pdbqt"
+      center_x: 84.194
+      center_y: 6.949
+      center_z: -7.081
+      size_x: 22.032
+      size_y: 19.211
+      size_z: 14.106
+  vargrad: True
+  write_mols_to_disk: True
+  layerwise_lr: True
+  perturb_logZ: true
+  atoms: ['Br', 'C', 'Cl', 'F', 'I', 'N', 'O', 'S']
+  log_dir: './AGFN_logs/debug_run'
+  diversity_filter: True
+  offline_data: False
+  offline_df_path: "./data/finetune_offline_data.csv"
+  gfn_loss_coeff: 1 #0.04
+  MLE_coeff: 0 #20
+  num_iter: 500000000000
+  load_saved_model: True
+  bootstrap_own_reward: False
+  random_seed: 1428570
+  reset_wts: False
+  reset_logZ: False
+  freeze_model: False
+  replay: False
+  beta_exp: 96 #32 #8 # 64
+  OOB_percent: 0.1
+  zinc_rad_scale: !!null
+  reward_aggergation: "mul"
+  atomenv_dictionary: "./data/atomenv_counts_ZINC_radius2_763K.pkl"
+  sampling_batch_size: 64 #512 #1024 #512
+  training_batch_size: 16 #64 #64 #128 #64
+  learning_rate: 1.e-6
+  num_workers: 1 #2 #4 # 8
+  num_emb: 128
+  num_layers: 15
+  num_mlp_layers:  10
+  num_heads: 4
+  i2h_width: 1
+  tb_epsilon: !!null
+  tb_do_subtb: False
+  illegal_action_logreward: -512
+  weight_decay: 1.e-8
+  momentum: 0.9
+  adam_eps: 1.e-8
+  lr_decay: 20000
+  Z_lr_decay: 20000
+  clip_grad: False
+  clip_grad_type: "norm"
+  clip_grad_param: 10
+  random_action_prob: 0.001
+  random_stop_prob: 0.001
+  sampling_tau: 0.0
+  num_back_steps_max: 25
+  max_traj_len: 40
+  max_nodes: 45
+  max_edges: 50
+  tb_p_b_is_parameterized: True
+  num_thermometer_dim: 16
+  sample_temp: 1
+  checkpoint_every: 10
+  

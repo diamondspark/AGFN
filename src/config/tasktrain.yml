@@ -1,0 +1,146 @@
+tasktraining:
+  type: 'tasktraining'
+  objective: 'property_constrained_optimization' # Do not change
+  subtype: 'preserved' #'value_mod'   # ' 'tsk_cond' 
+  task: "LD50" #"logP" #"Mol_Wt" #  "LD50"  #, #, #"CACO2" , 
+  task_possible_range: [302,800] # [1.5,5] #
+  pref_dir: -1 # 0,1,-1 determining rewards in desired range
+  value_mod:  
+    updated_prop: {'tpsa':[[100,120],[10,200], 0]}
+  task_model_path: './saved_models/task_models/ld50_mae0_62_catboostmaplight.pkl'
+  offline_data: False # False #True #
+  offline_df_path: "./data/task_files/pres_ld50_zhu.csv" # "/home/mkpandey/gfn_pretrain_test_env/code/GFN-Pretrain/src/MyGFN_Pretrain/data/task_offline_df/logP_1_65pres_11K.csv"
+  MLE_as_rew: False
+  gfn_loss_coeff:  0.04
+  MLE_coeff: 20
+  atoms: ['Br', 'C', 'Cl', 'F', 'I', 'N', 'O', 'S']
+  task_rewards_only: True # Always true for property optimization 
+  layerwise_lr: True
+  perturb_logZ: true
+  log_dir: './AGFN_logs/debug_run'
+  num_iter: 500000000000
+  load_saved_model: False
+  # saved_model_path: '/groups/cherkasvgrp/Student_backup/mkpandey/My_Projects/Generative_Modeling/GFN_files/GFNPt_logs/debug_run/fresh-water-838/model_state_fresh-water-838_46000.pt' # '/groups/cherkasvgrp/Student_backup/mkpandey/My_Projects/Generative_Modeling/GFN_files/GFNPt_logs/debug_run/stilted-rain-876/model_state_stilted-rain-876_229000.pt',#'/groups/cherkasvgrp/Student_backup/mkpandey/My_Projects/Generative_Modeling/GFN_files/GFNPt_logs/debug_run/clear-shadow-870/model_state_clear-shadow-870_88000.pt' #'/groups/cherkasvgrp/Student_backup/mkpandey/My_Projects/Generative_Modeling/GFN_files/GFNPt_logs/debug_run/fresh-water-838/model_state_fresh-water-838_46000.pt',
+  bootstrap_own_reward: False
+  random_seed: 1428570
+  reset_wts: False
+  reset_logZ: False
+  freeze_model: False
+  replay: False
+  beta_exp: 64
+  OOB_percent: 0.1
+  zinc_rad_scale: !!null
+  gfn_batch_shuffle: False
+  reward_aggergation: "mul"
+  atomenv_dictionary: "./data/atomenv_counts_ZINC_radius2_763K.pkl"
+  sampling_batch_size: 512
+  training_batch_size: 64
+  gfn_loss_coeff: 1
+  MLE_coeff: 0
+  learning_rate: 1.e-6
+  global_batch_size: 64
+  mix_ratio: 0.5
+  num_workers: 2
+  validate_batch: False
+  num_emb: 128
+  num_layers: 15
+  num_mlp_layers:  10
+  num_heads: 4
+  i2h_width: 1
+  tb_epsilon: !!null
+  tb_do_subtb: False
+  illegal_action_logreward: -512
+  weight_decay: 1.e-8
+  momentum: 0.9
+  adam_eps: 1.e-8
+  lr_decay: 20000
+  Z_lr_decay: 20000
+  clip_grad: False
+  clip_grad_type: "norm"
+  clip_grad_param: 10
+  random_action_prob: 0.001
+  # zinc_root: "/home/mkpandey/gfn_pretrain_test_env/code/GFN-Pretrain/src/MyGFN_Pretrain/data/"
+  random_stop_prob: 0.001
+  sampling_tau: 0.0
+  validation_preference_type: "random"
+  num_back_steps_max: 25
+  max_traj_len: 40
+  max_nodes: 45
+  max_edges: 50
+  tb_p_b_is_parameterized: True
+  num_thermometer_dim: 16
+  sample_temp: 1
+  checkpoint_every: 50
+
+# #######
+# finetuning:
+#   type: 'finetuning'  # 'rtb' #
+#   objective: 'property_constrained_optimization' # Do not change
+#   subtype: 'preserved' # 'value_mod' # 'tsk_cond'''
+#   run_expt: 'RTB_FT_mulGPU_try'
+#   task: "LD50" # "Mol_Wt" #"TDC" # #"logP" # , #"CACO2" , 
+#   task_possible_range: [2.3435, 5.541] #[302,800] #[2.4,5] #[1.5,5] # [1.65,5] #[302,800] #[300,800] # [2,6] #[340,800] #  [300,600 MW for tpsa 100,120 #
+#   pref_dir: -1 # 0,1,-1 determining rewards in desired range
+#   value_mod:
+#     updated_prop:  {'tpsa':[[40,60],[10,200], 0]} #{'tpsa':[[100,120],[10,200], 0]}
+#   task_model_path: './saved_models/task_models/ld50_mae0_62_catboostmaplight.pkl'
+#   offline_data: True # False #True #
+#   offline_df_path: "./data/task_files/pres_ld50_zhu.csv" # "/home/mkpandey/gfn_pretrain_test_env/code/GFN-Pretrain/src/MyGFN_Pretrain/data/task_offline_df/logP_1_65pres_11K.csv"
+#   MLE_as_rew: False
+#   gfn_loss_coeff:  0.04
+#   MLE_coeff: 20
+#   atoms: ['Br', 'C', 'Cl', 'F', 'I', 'N', 'O', 'S']
+#   vargrad: True
+#   # task_desired_range: [2,4] #[160,300]
+#   task_rewards_only: True # Always true for property optimization 
+#   layerwise_lr: False #True
+#   perturb_logZ: False # true
+#   log_dir: './AGFN_logs/debug_run'
+#   num_iter: 500000000000
+#   load_saved_model: True
+#   saved_model_path: './saved_models/pretrained/model_state_clean-sky-12_0.pt' #'/groups/cherkasvgrp/Student_backup/mkpandey/My_Projects/Generative_Modeling/GFN_files/GFNPt_logs/debug_run/polished-lion-1063/model_state_polished-lion-1063_100000.pt'  #'/groups/cherkasvgrp/Student_backup/mkpandey/My_Projects/Generative_Modeling/GFN_files/GFNPt_logs/debug_run/decent-butterfly-1/model_state_decent-butterfly-1_100000.pt'  #
+#   bootstrap_own_reward: False
+#   random_seed: 1428572
+#   reset_wts: False
+#   reset_logZ: False
+#   freeze_model: False
+#   beta_exp:  64
+#   OOB_percent: 0.1
+#   zinc_rad_scale: !!null
+#   gfn_batch_shuffle: False
+#   reward_aggergation: "mul"
+#   atomenv_dictionary: "./data/atomenv_counts_ZINC_radius2_763K.pkl"
+#   sampling_batch_size: 512 #1024 #512
+#   training_batch_size: 64 #128 #64
+#   learning_rate: 1.e-6
+#   # global_batch_size: 64
+#   mix_ratio: 0.5
+#   num_workers: 1 #2 #4 # 8
+#   validate_batch: False
+#   num_emb: 128
+#   num_layers: 15
+#   num_mlp_layers:  10
+#   num_heads: 4
+#   i2h_width: 1
+#   tb_epsilon: !!null
+#   tb_do_subtb: False
+#   illegal_action_logreward: -512
+#   weight_decay: 1.e-8
+#   momentum: 0.9
+#   adam_eps: 1.e-8
+#   lr_decay: 20000
+#   Z_lr_decay: 20000
+#   clip_grad: False
+#   clip_grad_type: "norm"
+#   clip_grad_param: 10
+#   random_action_prob: 0.001
+#   random_stop_prob: 0.001
+#   sampling_tau: 0.0
+#   num_back_steps_max: 25
+#   max_traj_len: 40
+#   max_nodes: 45
+#   max_edges: 50
+#   tb_p_b_is_parameterized: True
+#   num_thermometer_dim: 16
+#   sample_temp: 1
+#   checkpoint_every: 10

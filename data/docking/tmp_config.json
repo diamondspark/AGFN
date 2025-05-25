@@ -1,0 +1,47 @@
+{
+    "fa7": {
+        "receptor": "./data/docking/fa7.pdbqt",
+        "center_x": 10.131,
+        "center_y": 41.879,
+        "center_z": 32.097,
+        "size_x": 20.673,
+        "size_y": 20.198,
+        "size_z": 21.362
+    },
+    "parp1": {
+        "receptor": "./data/docking/parp1.pdbqt",
+        "center_x": 26.413,
+        "center_y": 11.282,
+        "center_z": 27.238,
+        "size_x": 18.521,
+        "size_y": 17.479,
+        "size_z": 19.995
+    },
+    "5ht1b": {
+        "receptor": "./data/docking/5ht1b.pdbqt",
+        "center_x": -26.602,
+        "center_y": 5.277,
+        "center_z": 17.898,
+        "size_x": 22.5,
+        "size_y": 22.5,
+        "size_z": 22.5
+    },
+    "jak2": {
+        "receptor": "./data/docking/jak2.pdbqt",
+        "center_x": 114.758,
+        "center_y": 65.496,
+        "center_z": 11.345,
+        "size_x": 19.033,
+        "size_y": 17.929,
+        "size_z": 20.283
+    },
+    "braf": {
+        "receptor": "./data/docking/braf.pdbqt",
+        "center_x": 84.194,
+        "center_y": 6.949,
+        "center_z": -7.081,
+        "size_x": 22.032,
+        "size_y": 19.211,
+        "size_z": 14.106
+    }
+}
