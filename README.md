@@ -131,6 +131,26 @@ python ./src/agfn/sampling.py [finetuned_model_path] [n_samples] --bs [batch_siz
 
 •	The final SMILES list (100%) is always saved as smiles_final.pkl.
 
+
+### 📊 Metrics
+
+To sample molecules from a fine-tuned model and compute evaluation metrics:
+
+```bash
+python ./src/agfn/metrics.py [finetuned_model_path] --ntrajs [#samples]
+```
+
+- `--ntrajs`: Number of trajectories/molecules to sample
+
+> ⚠️ **Note**:  
+> Hypervolume calculation is disabled by default due to slowness.  
+> To enable, pass `--do_hyp_vol True`.
+
+```bash
+python ./src/agfn/metrics.py [finetuned_model_path] --ntrajs [#samples] --do_hyp_vol True
+```
+
+
 ## 🔬 Applications
 
 ### 1. De Novo Design of Target-Specific Binders with Molecular Docking
